@@ -1,8 +1,6 @@
 import 'package:cat_app/cat_app.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ui/pages/home_page.dart';
-import 'package:ui/pages/splash_page.dart';
 import 'package:ui/routes/cat_routes.dart';
 import 'package:ui/util/application.dart';
 
@@ -54,16 +52,5 @@ mixin NavigatorRouter on State<CatApp> {
     assert(false, 'Need to implement ${settings.name}');
 
     return null;
-  }
-
-  String validateRedirect(String path, String? name) {
-    if (name == null || name != HomePage.route) {
-      return SplashPage.route;
-    }
-    return path;
-  }
-
-  Future<String?> redirect(BuildContext context, GoRouterState state) async {
-    return validateRedirect(state.matchedLocation, state.name);
   }
 }
